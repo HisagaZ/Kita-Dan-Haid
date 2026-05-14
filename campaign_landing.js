@@ -1,7 +1,7 @@
 // Navigation and Footer Components
 const headerContent = `
 <div class="logo">
-    <a href="campaign_landing.html"><img src="logo NGO KDH.png" alt="Kita dan Haid Logo"></a>
+    <a href="index.html"><img src="logo NGO KDH.png" alt="Kita dan Haid Logo"></a>
 </div>
 <nav>
     <ul>
@@ -61,7 +61,7 @@ function injectComponents() {
             navAbout.classList.add('active');
         } else if (currentPage === "programs.html") {
             navPrograms.classList.add('active');
-        } else if (currentPage === "campaign_landing.html" || currentPage === "") {
+        } else if (currentPage === "index.html" || currentPage === "") {
             navPrograms.classList.remove('active'); // Just being explicit
         }
     }
