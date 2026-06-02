@@ -148,8 +148,11 @@ function initAnimations() {
 
     // Header scroll effect
     const header = document.querySelector('header');
+    let lastScrollY = window.pageYOffset;
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
+        const mainNav = document.getElementById('main-nav');
+        const isMenuOpen = mainNav && mainNav.classList.contains('nav-open');
         
         if (header) {
             if (scrolled > 50) {
@@ -157,7 +160,15 @@ function initAnimations() {
             } else {
                 header.classList.remove('scrolled');
             }
+
+            if (!isMenuOpen && scrolled > 120 && scrolled > lastScrollY + 6) {
+                header.classList.add('header-hidden');
+            } else if (scrolled < lastScrollY - 6 || scrolled <= 120 || isMenuOpen) {
+                header.classList.remove('header-hidden');
+            }
         }
+
+        lastScrollY = Math.max(scrolled, 0);
 
         // Parallax effect for hero image
         const heroImg = document.querySelector('.hero-banner img');

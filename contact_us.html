@@ -219,52 +219,143 @@
 
         @media (max-width: 768px) {
             .contact-section {
-                padding: 70px 5%;
+                padding: 58px 20px;
                 overflow: hidden;
+                gap: 34px;
+                align-items: stretch;
+            }
+            .contact-info-col {
+                gap: 34px;
+                align-items: center;
+            }
+            .inquiry-group,
+            .social-cards-wrapper,
+            .contact-form-col {
+                width: 100%;
+                text-align: center;
             }
             .inquiry-group h2 {
-                font-size: 2.5rem;
+                font-size: clamp(2rem, 10vw, 2.7rem);
+                margin-bottom: 22px;
+                line-height: 0.98;
+            }
+            .inquiry-detail {
+                margin-bottom: 20px;
+            }
+            .inquiry-label {
+                font-size: 0.78rem;
+                letter-spacing: 1px;
             }
             .inquiry-value {
-                font-size: 1.25rem;
+                font-size: 1.12rem;
                 overflow-wrap: anywhere;
+                line-height: 1.35;
             }
             .contact-form-col {
                 width: 100%;
-                padding: 24px 18px;
+                padding: 22px 16px;
                 border-width: 3px;
                 border-radius: 16px;
-                box-shadow: 8px 8px 0px #000;
-            }
-            .form-control {
-                padding: 14px 15px;
-                min-width: 0;
-            }
-            .btn-submit {
-                padding: 15px 18px;
-                font-size: 1rem;
                 box-shadow: 6px 6px 0px #000;
             }
-            .social-cards-grid { 
-                display: flex;
-                flex-direction: row;
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                gap: 15px;
-                padding-bottom: 20px;
-                scrollbar-width: none;
+            .contact-form-col form > div:first-child {
+                font-size: 1.45rem !important;
+                line-height: 1.1;
+                margin-bottom: 18px !important;
             }
-            .social-cards-grid::-webkit-scrollbar { display: none; }
+            .form-group {
+                margin-bottom: 16px;
+            }
+            .form-group label {
+                font-size: 0.95rem;
+                margin-bottom: 7px;
+            }
+            .form-control {
+                padding: 12px 13px;
+                font-size: 0.95rem;
+                border-radius: 8px;
+                min-width: 0;
+            }
+            textarea.form-control {
+                min-height: 130px;
+            }
+            .form-control:focus {
+                box-shadow: 3px 3px 0px var(--primary-blue);
+            }
+            .btn-submit {
+                min-height: 46px;
+                padding: 13px 16px;
+                font-size: 0.95rem;
+                border-width: 3px;
+                border-radius: 10px;
+                box-shadow: 5px 5px 0px #000;
+            }
+            .social-cards-header {
+                font-size: 1.75rem;
+                line-height: 1;
+                margin-bottom: 18px;
+            }
+            .social-cards-grid { 
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+                overflow: visible;
+                padding-bottom: 0;
+                align-items: stretch;
+            }
             .social-hero-card {
-                flex: 0 0 min(76vw, 280px);
                 aspect-ratio: 1 / 1;
+                width: 100%;
                 min-height: 0;
-                padding: 24px 22px;
-                scroll-snap-align: center;
+                box-shadow: 4px 4px 0px #000;
+                border-width: 2px;
+                border-radius: 16px;
+                padding: 14px;
+                justify-content: space-between;
+                align-items: center;
+                text-align: center;
+            }
+            .social-hero-icon {
+                width: 34px;
+                height: 34px;
+                border-radius: 9px;
+            }
+            .social-hero-icon svg {
+                width: 20px;
+                height: 20px;
+            }
+            .social-hero-arrow svg {
+                width: 17px;
+                height: 17px;
             }
             .social-hero-info {
-                margin-top: 20px;
+                margin-top: 10px;
+            }
+            .social-hero-platform {
+                font-size: 1.05rem;
+                margin-bottom: 4px;
+            }
+            .social-hero-username {
+                font-size: 0.72rem;
+                line-height: 1.15;
+                letter-spacing: 0;
+                overflow-wrap: anywhere;
+            }
+        }
+        @media (max-width: 430px) {
+            .contact-section {
+                padding-top: 48px;
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+            .contact-form-col {
+                padding: 20px 14px;
+            }
+            .social-hero-card {
+                padding: 12px;
+            }
+            .social-hero-platform {
+                font-size: 0.98rem;
             }
         }
     </style>

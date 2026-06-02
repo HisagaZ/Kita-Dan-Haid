@@ -66,6 +66,10 @@ header.scrolled {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
 }
 
+header.header-hidden {
+    transform: translateY(-115%);
+}
+
 .logo img {
     height: 50px;
     width: auto;
@@ -2715,4 +2719,653 @@ nav a.active {
     .org-chart h2, .timeline-header h2 { font-size: 2.2rem; }
     .collab-content h2 { font-size: 2rem !important; }
     .cta-content h2 { font-size: 2.3rem; }
+}
+
+/* ============================================================
+   MOBILE-FIRST OVERHAUL LAYER
+   Gives phone layouts their own tighter rhythm and sizing.
+   ============================================================ */
+@media (max-width: 768px) {
+    html {
+        font-size: 15px;
+    }
+
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    main {
+        overflow: hidden;
+    }
+
+    header {
+        min-height: 68px;
+        padding: 12px 5% !important;
+    }
+
+    .logo img {
+        height: 40px;
+        max-width: 150px;
+    }
+
+    header.scrolled .logo img {
+        height: 34px;
+    }
+
+    #main-nav {
+        padding: 86px 7vw 36px;
+    }
+
+    #main-nav ul a {
+        font-size: 1.15rem;
+        padding: 15px 0;
+    }
+
+    .mobile-member-btn,
+    .btn-partnership,
+    .btn-learn-more,
+    .btn-join,
+    .btn-programs-view,
+    .btn-neon-pill,
+    .btn-brutal-primary,
+    .btn-brutal-secondary,
+    .card-btn-view {
+        min-height: 44px;
+        padding: 12px 20px !important;
+        border-radius: 12px !important;
+        font-size: 0.92rem !important;
+        line-height: 1.15;
+        letter-spacing: 0;
+        text-align: center;
+        white-space: normal;
+    }
+
+    .btn-programs-view,
+    .btn-neon-pill,
+    .btn-join,
+    .btn-brutal-primary,
+    .btn-brutal-secondary {
+        box-shadow: 5px 5px 0 #000 !important;
+        border-width: 3px !important;
+    }
+
+    .programs-hero,
+    .hero-editorial {
+        min-height: 620px;
+        height: 86svh !important;
+        padding: 92px 5% 34px !important;
+    }
+
+    .programs-hero-content,
+    .hero-editorial-content {
+        max-width: 100%;
+        padding: 0 !important;
+    }
+
+    .programs-hero-content h1,
+    .hero-headline,
+    .carousel-title-area h2,
+    .holistic-header h2,
+    .kit-text h2,
+    .vision-text,
+    .story-content h2,
+    .footer-content h2,
+    .ops-text-side h2,
+    .cta-content h2,
+    .commitment-content h2 {
+        font-size: clamp(2.05rem, 11vw, 3.1rem) !important;
+        line-height: 0.98 !important;
+        letter-spacing: 0 !important;
+    }
+
+    .programs-hero-content p,
+    .carousel-desc-area p,
+    .holistic-header p,
+    .kit-text p,
+    .card-content p,
+    .pillar-content p,
+    .wwd-card p,
+    .story-content p,
+    .footer-info p,
+    .program-description p,
+    .ops-desc-box p,
+    .cta-content p {
+        font-size: 0.98rem !important;
+        line-height: 1.55 !important;
+    }
+
+    .hero-tag,
+    .section-tag,
+    .cta-badge {
+        padding: 7px 13px !important;
+        font-size: 0.7rem !important;
+        letter-spacing: 1px !important;
+        border-width: 2px !important;
+        box-shadow: 3px 3px 0 #000 !important;
+    }
+
+    .highlight-pill,
+    .pill-blue {
+        padding: 0 12px !important;
+        border-width: 3px !important;
+        border-radius: 999px !important;
+    }
+
+    .programs-carousel-section,
+    .holistic-reimagined,
+    .kit-anatomy,
+    .what-we-do,
+    .vision-mission,
+    .story-section,
+    .team-section,
+    .footer-cta,
+    .program-description,
+    .program-gallery,
+    .maroon-commitment,
+    .maroon-cta,
+    .blue-operations,
+    .volunteer-section,
+    .our-goals-section {
+        padding: 58px 5% !important;
+    }
+
+    .carousel-header,
+    .kit-anatomy-content,
+    .holistic-reimagined,
+    .footer-cta,
+    .blue-operations,
+    .story-section,
+    .vision-mission,
+    .volunteer-section {
+        gap: 28px !important;
+    }
+
+    .programs-grid-modern,
+    .kit-grid,
+    .gallery-grid,
+    .goal-cards-container {
+        display: flex !important;
+        grid-template-columns: none !important;
+        overflow-x: auto !important;
+        overflow-y: visible;
+        gap: 16px !important;
+        margin-right: -5% !important;
+        padding: 6px 5% 26px 0 !important;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+    }
+
+    .programs-grid-modern::-webkit-scrollbar,
+    .kit-grid::-webkit-scrollbar,
+    .gallery-grid::-webkit-scrollbar,
+    .goal-cards-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .program-card-modern,
+    .kit-part,
+    .gallery-item,
+    .goal-card-blue,
+    .goal-card-white,
+    .wwd-card,
+    .pillar-card-v2,
+    .mission-item,
+    .org-card,
+    .timeline-card,
+    .voice-card,
+    .commitment-item {
+        border-width: 3px !important;
+        border-radius: 16px !important;
+        box-shadow: 6px 6px 0 #000 !important;
+        transform: none !important;
+    }
+
+    .program-card-modern {
+        flex: 0 0 82vw !important;
+        min-height: 430px !important;
+        padding: 22px 18px !important;
+        scroll-snap-align: start;
+    }
+
+    .card-content h3,
+    .pillar-content h3,
+    .wwd-card h3,
+    .mission-item h3,
+    .commitment-item h4,
+    .program-description h2,
+    .program-gallery h2 {
+        font-size: clamp(1.45rem, 7vw, 2rem) !important;
+        line-height: 1.08 !important;
+        letter-spacing: 0 !important;
+    }
+
+    .card-image-box {
+        height: auto !important;
+        aspect-ratio: 4 / 3;
+        margin-top: 22px !important;
+        border-width: 3px !important;
+        border-radius: 14px !important;
+        box-shadow: 5px 5px 0 #000 !important;
+    }
+
+    .card-btn-view {
+        border-top-width: 3px !important;
+    }
+
+    .pillar-card-v2 {
+        padding: 22px 18px !important;
+        gap: 10px !important;
+    }
+
+    .pillar-num {
+        font-size: 2.8rem !important;
+    }
+
+    .kit-part {
+        flex: 0 0 74vw !important;
+        min-height: 230px;
+        padding: 22px 18px !important;
+        scroll-snap-align: start;
+    }
+
+    .kit-icon {
+        font-size: 2.25rem !important;
+        margin-bottom: 12px !important;
+    }
+
+    .gallery-item {
+        flex: 0 0 82vw !important;
+        height: auto !important;
+        aspect-ratio: 4 / 3 !important;
+        scroll-snap-align: start;
+    }
+
+    .program-description h2,
+    .program-gallery h2 {
+        margin-bottom: 22px !important;
+    }
+
+    .program-description p {
+        max-width: 100% !important;
+        margin-bottom: 16px !important;
+    }
+
+    .footer-grid,
+    .impact-stats,
+    .wwd-grid,
+    .goals-grid,
+    .stats-grid,
+    .form-row {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    .circle-icon,
+    .circle-icon-blue,
+    .wwd-card .circle-icon {
+        width: 78px !important;
+        height: 78px !important;
+        margin-bottom: 18px !important;
+    }
+
+    .impact-stats {
+        margin: 34px 5% !important;
+        padding: 34px 5% !important;
+        border-radius: 18px !important;
+    }
+
+    .stat-item h2,
+    .stat-num {
+        font-size: 2.6rem !important;
+    }
+
+    .footer-image-side img,
+    .story-image,
+    .ops-image-wrapper {
+        height: auto !important;
+        aspect-ratio: 4 / 3;
+        border-width: 3px !important;
+        border-radius: 16px !important;
+        box-shadow: 6px 6px 0 #000 !important;
+    }
+
+    .footer-image-side img,
+    .story-image img,
+    .ops-image-wrapper img {
+        object-fit: cover;
+    }
+
+    .timeline-item.top,
+    .timeline-item.bottom {
+        padding-left: 36px !important;
+    }
+
+    .timeline-grid::after {
+        left: 12px !important;
+    }
+
+    .timeline-item.top .timeline-dot,
+    .timeline-item.bottom .timeline-dot {
+        left: 0 !important;
+    }
+
+    .cta-content p,
+    .ops-desc-box {
+        padding: 18px !important;
+        border-width: 3px !important;
+        box-shadow: 6px 6px 0 var(--primary-blue) !important;
+    }
+
+    .commitment-grid {
+        gap: 24px !important;
+    }
+
+    .commitment-item {
+        padding: 24px 18px !important;
+    }
+
+    .comm-num {
+        font-size: 2.8rem !important;
+        min-width: auto !important;
+        padding: 0 0 14px !important;
+    }
+}
+
+@media (max-width: 430px) {
+    html {
+        font-size: 14px;
+    }
+
+    .programs-hero,
+    .hero-editorial {
+        min-height: 560px;
+        height: 82svh !important;
+    }
+
+    .program-card-modern {
+        flex-basis: 84vw !important;
+        min-height: 400px !important;
+    }
+
+    .kit-part {
+        flex-basis: 78vw !important;
+    }
+
+    .gallery-item {
+        flex-basis: 84vw !important;
+    }
+}
+
+/* ============================================================
+   MOBILE CENTER ALIGNMENT PASS
+   Keeps phone pages centered on one consistent gutter.
+   ============================================================ */
+@media (max-width: 768px) {
+    :root {
+        --mobile-gutter: 20px;
+        --mobile-section-gap: 30px;
+    }
+
+    header,
+    .programs-hero,
+    .hero-editorial,
+    .programs-carousel-section,
+    .holistic-reimagined,
+    .kit-anatomy,
+    .what-we-do,
+    .vision-mission,
+    .story-section,
+    .team-section,
+    .footer-cta,
+    .program-description,
+    .program-gallery,
+    .maroon-commitment,
+    .maroon-cta,
+    .blue-operations,
+    .volunteer-section,
+    .our-goals-section,
+    .poverty-section,
+    .timeline-section,
+    .org-chart,
+    .stats-surprise {
+        padding-left: var(--mobile-gutter) !important;
+        padding-right: var(--mobile-gutter) !important;
+    }
+
+    header {
+        justify-content: space-between;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 12px !important;
+        flex-wrap: nowrap !important;
+    }
+
+    .logo {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .logo img {
+        margin: 0 !important;
+    }
+
+    .hamburger {
+        flex: 0 0 auto;
+        margin-left: auto;
+        order: 2 !important;
+    }
+
+    .programs-hero,
+    .hero-editorial {
+        align-items: center !important;
+        justify-content: flex-end !important;
+        text-align: center !important;
+    }
+
+    .programs-hero-content,
+    .hero-editorial-content,
+    .carousel-header,
+    .carousel-title-area,
+    .carousel-desc-area,
+    .holistic-header,
+    .kit-text,
+    .vision-sticky,
+    .story-content,
+    .footer-content,
+    .ops-text-side,
+    .cta-content,
+    .commitment-content,
+    .program-description,
+    .program-gallery,
+    .poverty-intro {
+        width: 100%;
+        max-width: 100% !important;
+        text-align: center !important;
+        align-items: center !important;
+    }
+
+    .programs-hero-content p,
+    .carousel-desc-area p,
+    .holistic-header p,
+    .kit-text p,
+    .story-content p,
+    .ops-desc-box p,
+    .cta-content p,
+    .program-description p,
+    .poverty-intro p {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        max-width: 34rem !important;
+    }
+
+    .btn-programs-view,
+    .btn-neon-pill,
+    .btn-learn-more,
+    .btn-join,
+    .btn-brutal-primary,
+    .btn-brutal-secondary {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        width: fit-content !important;
+        max-width: 100%;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .programs-grid-modern,
+    .kit-grid,
+    .gallery-grid,
+    .goal-cards-container {
+        margin-left: 0 !important;
+        margin-right: calc(var(--mobile-gutter) * -1) !important;
+        padding-left: 0 !important;
+        padding-right: var(--mobile-gutter) !important;
+        scroll-padding-left: 0;
+    }
+
+    .program-card-modern,
+    .kit-part,
+    .goal-card-blue,
+    .goal-card-white,
+    .wwd-card,
+    .pillar-card-v2,
+    .mission-item,
+    .org-card,
+    .timeline-card,
+    .voice-card,
+    .commitment-item,
+    .collab-form,
+    .volunteer-form {
+        text-align: center !important;
+        align-items: center !important;
+    }
+
+    .program-card-modern,
+    .kit-part,
+    .gallery-item {
+        scroll-snap-align: start !important;
+    }
+
+    .program-card-modern {
+        flex-basis: min(82vw, 340px) !important;
+    }
+
+    .kit-part {
+        flex-basis: min(76vw, 300px) !important;
+    }
+
+    .gallery-item {
+        flex-basis: min(84vw, 360px) !important;
+    }
+
+    .card-content,
+    .pillar-content,
+    .timeline-content,
+    .commitment-item > div:not(.comm-num) {
+        width: 100%;
+        text-align: center !important;
+    }
+
+    .card-image-box,
+    .footer-image-side,
+    .story-image,
+    .ops-image-wrapper {
+        width: 100% !important;
+        align-self: stretch;
+    }
+
+    .holistic-reimagined,
+    .kit-anatomy-content,
+    .footer-cta,
+    .blue-operations,
+    .story-section,
+    .vision-mission,
+    .volunteer-section,
+    .collab-section {
+        align-items: center !important;
+    }
+
+    .wwd-card .circle-icon,
+    .circle-icon,
+    .circle-icon-blue,
+    .member-photo {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .impact-stats,
+    .stats-grid,
+    .stat-item,
+    .team-member {
+        text-align: center !important;
+        align-items: center !important;
+    }
+
+    .impact-stats {
+        margin-left: var(--mobile-gutter) !important;
+        margin-right: var(--mobile-gutter) !important;
+    }
+
+    .footer-grid {
+        text-align: center !important;
+        justify-items: center !important;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .mobile-member-btn {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 430px) {
+    :root {
+        --mobile-gutter: 16px;
+    }
+}
+
+/* Keep the index homepage hero in its earlier mobile composition. */
+@media (max-width: 768px) {
+    .hero-editorial {
+        height: 100svh !important;
+        min-height: 620px;
+        align-items: flex-end !important;
+        justify-content: flex-end !important;
+        text-align: left !important;
+        padding: 0 !important;
+    }
+
+    .hero-editorial-content {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 25px;
+        padding: 30px var(--mobile-gutter) !important;
+        text-align: left !important;
+    }
+
+    .hero-headline {
+        font-size: clamp(2.8rem, 13vw, 5rem) !important;
+        letter-spacing: -1px !important;
+        text-align: left !important;
+    }
+
+    .hero-editorial .btn-learn-more {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+}
+
+@media (max-width: 430px) {
+    .hero-editorial {
+        height: 100svh !important;
+        min-height: 560px;
+    }
+
+    .hero-headline {
+        font-size: 2.4rem !important;
+    }
 }
