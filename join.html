@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Our Mission | Kita dan Haid</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Form Section Styles */
+        .collab-section {
+            padding: 120px 8%;
+            background: var(--bg-light);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .collab-content h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            color: var(--primary-maroon);
+            text-transform: uppercase;
+        }
+
+        .collab-content p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .collab-form {
+            background: #fff;
+            padding: 50px;
+            border-radius: 20px;
+            border: 4px solid #000;
+            box-shadow: 15px 15px 0px #000;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 1rem;
+            font-family: inherit;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            transition: var(--transition-smooth);
+            background: #f9f9f9;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            background: #fff;
+            box-shadow: 4px 4px 0px var(--primary-blue);
+        }
+
+        .btn-submit {
+            display: inline-block;
+            width: 100%;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 18px 30px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border: 4px solid #000;
+            box-shadow: 8px 8px 0px #000;
+        }
+
+        .btn-submit:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0px #000;
+            background: #145a96;
+        }
+
+        @media (max-width: 900px) {
+            .collab-section {
+                grid-template-columns: 1fr;
+            }
+
+            .collab-form {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .collab-content h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header-placeholder"></header>
+
+    <main>
+        <!-- Top Hero Section -->
+        <section class="programs-hero">
+            <div class="programs-hero-bg">
+                <img src="hero 1.JPG" alt="Join Background">
+            </div>
+            <div class="programs-hero-overlay"></div>
+
+            <div class="programs-hero-content">
+                <span class="hero-tag">Join Us</span>
+                <h1>Application <br><span class="highlight-pill">Form</span></h1>
+                <p>Become a member today and actively help us eradicate period poverty, one step at a time.</p>
+                <a href="#form-section" class="btn-programs-view">Apply Now</a>
+            </div>
+        </section>
+
+        <!-- Application Form Section -->
+        <section class="collab-section" id="form-section">
+            <div class="collab-content scroll-reveal">
+                <h2>Become A <br>Member</h2>
+                <p>Join a collective force working to ensure every girl and woman has access to essential sanitary products and fundamental health education. We need your voice!</p>
+            </div>
+
+            <div class="collab-form-container scroll-reveal" style="transition-delay: 0.2s;">
+                <form class="collab-form" action="#" method="POST">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Jane Doe"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="jane@example.com"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="+60 12-345 6789"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Why do you want to join us?</label>
+                        <textarea id="message" name="message" class="form-control" rows="4"
+                            placeholder="Tell us about your motivation..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Submit Application</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer-placeholder" class="main-footer"></footer>
+
+    <script src="campaign_landing.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Kita dan Haid</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Contact Us Specific Styles */
+        .contact-section {
+            padding: 100px 8%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            background: var(--bg-light);
+            align-items: start;
+        }
+
+        /* left column */
+        .contact-info-col {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .inquiry-group h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        .inquiry-detail {
+            margin-bottom: 30px;
+        }
+
+        .inquiry-label {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .inquiry-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+        .inquiry-value a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+        
+        .inquiry-value a:hover {
+            color: var(--primary-maroon);
+            text-decoration: underline;
+        }
+
+        /* Form */
+        .contact-form-col {
+            background: #fff;
+            padding: 50px;
+            border-radius: 20px;
+            border: 4px solid #000;
+            box-shadow: 15px 15px 0px #000;
+            min-width: 0;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 1rem;
+            font-family: inherit;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            transition: var(--transition-smooth);
+            background: #f9f9f9;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            background: #fff;
+            box-shadow: 4px 4px 0px var(--primary-blue);
+        }
+
+        .btn-submit {
+            display: inline-block;
+            width: 100%;
+            background: var(--primary-maroon);
+            color: white;
+            border: none;
+            padding: 18px 30px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border: 4px solid #000;
+            box-shadow: 8px 8px 0px #000;
+        }
+
+        .btn-submit:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0px #000;
+            background: #560f21;
+        }
+
+        /* Social Cards Section (Adapted from social-cards.liquid) */
+        .social-cards-wrapper {
+            max-width: 1400px;
+            background: var(--bg-light);
+        }
+
+        .social-cards-header {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            color: var(--text-dark);
+        }
+
+        .social-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .social-hero-card {
+            border-radius: 24px;
+            padding: 35px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-decoration: none;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+            min-height: 220px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 2px solid #000; /* Brutalist touch mixed with rounded cards */
+        }
+
+        .social-hero-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 10px 10px 0px var(--primary-blue);
+        }
+
+        .social-hero-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .social-hero-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 14px;
+            background: rgba(0,0,0,0.08); /* slightly darker for visibility */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .social-hero-arrow {
+            opacity: 0.5;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        
+        .social-hero-card:hover .social-hero-arrow {
+            transform: translate(4px, -4px);
+            opacity: 1;
+        }
+
+        .social-hero-info {
+            margin-top: 35px;
+        }
+
+        .social-hero-platform {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0 0 8px 0;
+            line-height: 1.1;
+        }
+
+        .social-hero-username {
+            font-size: 1.05rem;
+            margin: 0;
+            opacity: 0.85;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 991px) {
+            .contact-section { grid-template-columns: 1fr; gap: 60px; }
+            .social-cards-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 70px 5%;
+                overflow: hidden;
+            }
+            .inquiry-group h2 {
+                font-size: 2.5rem;
+            }
+            .inquiry-value {
+                font-size: 1.25rem;
+                overflow-wrap: anywhere;
+            }
+            .contact-form-col {
+                width: 100%;
+                padding: 24px 18px;
+                border-width: 3px;
+                border-radius: 16px;
+                box-shadow: 8px 8px 0px #000;
+            }
+            .form-control {
+                padding: 14px 15px;
+                min-width: 0;
+            }
+            .btn-submit {
+                padding: 15px 18px;
+                font-size: 1rem;
+                box-shadow: 6px 6px 0px #000;
+            }
+            .social-cards-grid { 
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 15px;
+                padding-bottom: 20px;
+                scrollbar-width: none;
+            }
+            .social-cards-grid::-webkit-scrollbar { display: none; }
+            .social-hero-card {
+                flex: 0 0 min(76vw, 280px);
+                aspect-ratio: 1 / 1;
+                min-height: 0;
+                padding: 24px 22px;
+                scroll-snap-align: center;
+            }
+            .social-hero-info {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header-placeholder"></header>
+
+    <main>
+        <!-- Contact Us Hero -->
+        <section class="programs-hero">
+            <div class="programs-hero-bg">
+                <img src="hero 1.JPG" alt="Contact Us Background">
+            </div>
+            <div class="programs-hero-overlay"></div>
+
+            <div class="programs-hero-content">
+                <span class="hero-tag">Contact</span>
+                <h1>Reach <br><span class="highlight-pill">Out</span></h1>
+                <p>Have a question or want to get involved? Send us a message, or drop by our office. We are always eager to connect with like-minded individuals.</p>
+                <a href="#explore" class="btn-programs-view">Contact Info</a>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <section class="contact-section" id="explore">
+            
+            <div class="contact-info-col scroll-reveal">
+                <div class="inquiry-group">
+                    <h2>For Inquiry</h2>
+                    
+                    <div class="inquiry-detail">
+                        <div class="inquiry-label">Phone Number</div>
+                        <div class="inquiry-value"><a href="tel:+60123456789">+60 12-345 6789</a></div>
+                    </div>
+
+                    <div class="inquiry-detail">
+                        <div class="inquiry-label">Email</div>
+                        <div class="inquiry-value"><a href="mailto:hello@kitadanhaid.org">hello@kitadanhaid.org</a></div>
+                    </div>
+
+                    <div class="inquiry-detail">
+                        <div class="inquiry-label">Location Address</div>
+                        <div class="inquiry-value">123 Sentinel Tower,<br> Jalan Ampang, 50450<br> Kuala Lumpur, Malaysia</div>
+                    </div>
+                </div>
+
+                <!-- Follow Our Socials -->
+                <div class="social-cards-wrapper">
+                    <h3 class="social-cards-header">Follow Our Socials</h3>
+                    <div class="social-cards-grid">
+                        
+                        <!-- Instagram Card -->
+                        <a href="https://instagram.com/helloqweenhq" class="social-hero-card" style="background-color: #FFEDF1; color: #560F21;">
+                            <div class="social-hero-header">
+                                <div class="social-hero-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                                </div>
+                                <div class="social-hero-arrow">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                                </div>
+                            </div>
+                            <div class="social-hero-info">
+                                <h3 class="social-hero-platform">Instagram</h3>
+                                <p class="social-hero-username">@helloqweenhq</p>
+                            </div>
+                        </a>
+
+                        <!-- TikTok Card -->
+                        <a href="https://tiktok.com/@helloqween" class="social-hero-card" style="background-color: #F3F3F3; color: #1a1a1a;">
+                            <div class="social-hero-header">
+                                <div class="social-hero-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.16-3.44-3.37-3.65-5.71-.24-2.61.9-5.3 2.94-6.85 1.54-1.18 3.55-1.64 5.48-1.33v4.11c-.57-.08-1.16-.07-1.72.06-.9.2-1.64.81-2.06 1.63-.48.91-.49 2.02-.03 2.94.49.97 1.48 1.63 2.56 1.7 1.25.07 2.47-.56 3.09-1.62.33-.55.51-1.2.51-1.85-.05-4.66.01-9.33-.03-14V.02Z"/></svg>
+                                </div>
+                                <div class="social-hero-arrow">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                                </div>
+                            </div>
+                            <div class="social-hero-info">
+                                <h3 class="social-hero-platform">TikTok</h3>
+                                <p class="social-hero-username">@helloqween</p>
+                            </div>
+                        </a>
+
+                        <!-- WhatsApp Card -->
+                        <a href="#" class="social-hero-card" style="background-color: #E6F8ED; color: #128C7E;">
+                            <div class="social-hero-header">
+                                <div class="social-hero-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                                </div>
+                                <div class="social-hero-arrow">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                                </div>
+                            </div>
+                            <div class="social-hero-info">
+                                <h3 class="social-hero-platform">WhatsApp</h3>
+                                <p class="social-hero-username">Message Us</p>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Form Column -->
+            <div class="contact-form-col scroll-reveal" style="transition-delay: 0.2s;">
+                <form action="#" method="POST">
+                    <div style="font-size: 2rem; font-weight: 800; margin-bottom: 25px; color: var(--text-dark);">Send Us A Message</div>
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Jane Doe" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="jane@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="+60 12-345 6789">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" class="form-control" placeholder="How can we help?" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" class="form-control" rows="5" placeholder="Type your message here..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+            </div>
+            
+        </section>
+    </main>
+
+    <footer id="footer-placeholder" class="main-footer"></footer>
+
+    <script src="campaign_landing.js"></script>
+</body>
+
+</html>

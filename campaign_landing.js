@@ -1,31 +1,38 @@
-// Navigation and Footer Components
+const basePath = window.location.pathname.includes('/programs/') ? '../' : '';
+
 const headerContent = `
 <div class="logo">
-    <a href="index.html"><img src="logo NGO KDH.png" alt="Kita dan Haid Logo"></a>
+    <a href="${basePath}index.html"><img src="${basePath}logo NGO KDH.png" alt="Kita dan Haid Logo"></a>
 </div>
-<nav>
+<button class="hamburger" id="hamburger-btn" aria-label="Open Menu">
+    <span></span><span></span><span></span>
+</button>
+<nav id="main-nav">
     <ul>
-        <li><a href="about_us.html" id="nav-about">About Us</a></li>
-        <li><a href="programs.html" id="nav-programs">Our Programs</a></li>
-        <li><a href="#">Stories</a></li>
-        <li><a href="#">Donate Now</a></li>
+        <li><a href="${basePath}about_us.html" id="nav-about">About Us</a></li>
+        <li><a href="${basePath}programs.html" id="nav-programs">Our Programs</a></li>
+        <li><a href="${basePath}achievement.html" id="nav-achievement">Achievement</a></li>
+        <li><a href="${basePath}stories.html" id="nav-stories">Stories</a></li>
+        <li><a href="${basePath}partnership.html" id="nav-partnership">Partnership</a></li>
+        <li><a href="${basePath}contact_us.html" id="nav-contact">Contact Us</a></li>
     </ul>
+    <a href="${basePath}join.html" class="btn-partnership mobile-member-btn">Member</a>
 </nav>
-<a href="#" class="btn-partnership">Donate Now</a>
+<a href="${basePath}join.html" class="btn-partnership desktop-member-btn">Member</a>
 `;
 
 const footerContent = `
 <div class="footer-grid">
     <div class="footer-info">
-        <img src="logo NGO KDH.png" alt="Kita dan Haid Logo" class="footer-logo">
+        <img src="${basePath}logo NGO KDH.png" alt="Kita dan Haid Logo" class="footer-logo">
         <p>Empowering girls, breaking taboos, and ending period poverty across the globe. Join us in making a difference for a better tomorrow.</p>
     </div>
     <div class="footer-links">
         <h4>Quick Links</h4>
         <ul>
-            <li><a href="about_us.html">About Us</a></li>
-            <li><a href="programs.html">Our Programs</a></li>
-            <li><a href="#">Stories</a></li>
+            <li><a href="${basePath}about_us.html">About Us</a></li>
+            <li><a href="${basePath}programs.html">Our Programs</a></li>
+            <li><a href="${basePath}stories.html">Stories</a></li>
             <li><a href="#">Donate Now</a></li>
         </ul>
     </div>
@@ -51,19 +58,51 @@ function injectComponents() {
     if (headerPlaceholder) headerPlaceholder.innerHTML = headerContent;
     if (footerPlaceholder) footerPlaceholder.innerHTML = footerContent;
 
+    // Hamburger menu toggle
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mainNav = document.getElementById('main-nav');
+    if (hamburgerBtn && mainNav) {
+        hamburgerBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('nav-open');
+            hamburgerBtn.classList.toggle('is-active');
+        });
+        // Close nav when a link is clicked
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('nav-open');
+                hamburgerBtn.classList.remove('is-active');
+            });
+        });
+    }
+
     // Highlight active nav link
     const currentPage = window.location.pathname.split("/").pop();
     const navAbout = document.getElementById('nav-about');
     const navPrograms = document.getElementById('nav-programs');
+    const navAchievement = document.getElementById('nav-achievement');
+    const navStories = document.getElementById('nav-stories');
+    const navPartnership = document.getElementById('nav-partnership');
+    const navContact = document.getElementById('nav-contact');
 
-    if (navAbout && navPrograms) {
-        if (currentPage === "about_us.html") {
-            navAbout.classList.add('active');
-        } else if (currentPage === "programs.html") {
-            navPrograms.classList.add('active');
-        } else if (currentPage === "index.html" || currentPage === "") {
-            navPrograms.classList.remove('active'); // Just being explicit
-        }
+    if (navAbout) navAbout.classList.remove('active');
+    if (navPrograms) navPrograms.classList.remove('active');
+    if (navAchievement) navAchievement.classList.remove('active');
+    if (navStories) navStories.classList.remove('active');
+    if (navPartnership) navPartnership.classList.remove('active');
+    if (navContact) navContact.classList.remove('active');
+
+    if (currentPage === "about_us.html" && navAbout) {
+        navAbout.classList.add('active');
+    } else if (currentPage === "programs.html" && navPrograms) {
+        navPrograms.classList.add('active');
+    } else if (currentPage === "achievement.html" && navAchievement) {
+        navAchievement.classList.add('active');
+    } else if (currentPage === "stories.html" && navStories) {
+        navStories.classList.add('active');
+    } else if (currentPage === "partnership.html" && navPartnership) {
+        navPartnership.classList.add('active');
+    } else if (currentPage === "contact_us.html" && navContact) {
+        navContact.classList.add('active');
     }
 }
 
@@ -131,7 +170,8 @@ function initAnimations() {
 function accessAdmin() {
     const password = prompt("Enter Admin Password:");
     if (password === 'iman') {
-        window.location.href = 'admin.html';
+        const adminPath = window.location.pathname.includes('/programs/') ? '../admin.html' : 'admin.html';
+        window.location.href = adminPath;
     } else {
         alert("Incorrect Password!");
     }

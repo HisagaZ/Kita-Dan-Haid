@@ -7,24 +7,56 @@
     <title>Kita dan Haid | Ending Period Poverty</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Homepage specific header styles to match hero */
+        header {
+            position: fixed !important;
+            background: transparent !important;
+        }
+
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        header:not(.scrolled) .logo img {
+            filter: brightness(0) invert(1);
+        }
+
+        header:not(.scrolled) nav a {
+            color: white !important;
+        }
+
+        header:not(.scrolled) nav a:after {
+            background-color: white !important;
+        }
+
+        header:not(.scrolled) .btn-partnership {
+            background-color: var(--primary-maroon) !important;
+            color: white !important;
+            border: none;
+        }
+    </style>
 </head>
 
 <body>
 
     <header id="header-placeholder"></header>
 
-    <section class="hero">
-        <div class="hero-banner">
-            <img src="DSC05104.JPG" alt="Impact Awareness">
-            <div class="hero-content">
-                <h1>Girls Should Not Suffer from Period</h1>
-                <a href="#intro" class="hero-cta">
-                    <span>Learn more about us</span>
-                    <div class="cta-arrow">↓</div>
-                </a>
-            </div>
+    <section class="hero-editorial">
+        <div class="hero-editorial-image">
+            <img src="hero2.JPG" alt="Impact Awareness">
+        </div>
+        <div class="hero-editorial-content">
+            <h1 class="hero-headline">
+                GIRLS<br>
+                SHOULD<br>
+                NOT SUFFER<br>
+                FROM PERIOD
+            </h1>
+            <a href="#intro" class="btn-learn-more">Learn More</a>
         </div>
     </section>
 
@@ -39,61 +71,188 @@
             </div>
         </div>
         <div class="goal-cards-container" id="goalContainer">
-            <div class="goal-card-blue scroll-reveal" style="transition-delay: 0.1s">
-                <div class="circle-icon">
+            <!-- Goal Card 1 -->
+            <div class="program-card-modern scroll-reveal" style="transition-delay: 0.1s; min-width: 350px;">
+                <div class="card-content">
+                    <h3>SANITATION <br>ACCESS</h3>
+                    <p>Ensuring every girl has access to sanitary products and clean water facilities in their schools
+                        and homes.</p>
+                </div>
+                <div class="card-image-box">
                     <img src="DSC05105.JPG" alt="Sanitation Access">
+                    <a href="#" class="card-btn-view">GOAL 1</a>
                 </div>
-                <h3>Goal 1</h3>
-                <p>Ensuring every girl has access to sanitary products and clean water facilities in their schools and homes.</p>
             </div>
-            <div class="goal-card-blue scroll-reveal" style="transition-delay: 0.2s">
-                <div class="circle-icon">
+
+            <!-- Goal Card 2 -->
+            <div class="program-card-modern highlight-blue scroll-reveal"
+                style="transition-delay: 0.2s; min-width: 350px;">
+                <div class="card-content">
+                    <h3>MENSTRUAL <br>EDUCATION</h3>
+                    <p>Providing comprehensive menstrual hygiene education to break taboos and empower young women.</p>
+                </div>
+                <div class="card-image-box">
                     <img src="DSC05106.JPG" alt="Education">
+                    <a href="#" class="card-btn-view">GOAL 2</a>
                 </div>
-                <h3>Goal 2</h3>
-                <p>Providing comprehensive menstrual hygiene education to break taboos and empower young women.</p>
             </div>
-            <div class="goal-card-blue scroll-reveal" style="transition-delay: 0.3s">
-                <div class="circle-icon">
-                    <img src="DSC05107.JPG" alt="Sanitation">
+
+            <!-- Goal Card 3 -->
+            <div class="program-card-modern scroll-reveal" style="transition-delay: 0.3s; min-width: 350px;">
+                <div class="card-content">
+                    <h3>COMMUNITY <br>INFRASTRUCTURE</h3>
+                    <p>Building sustainable sanitation infrastructure to support menstrual dignity in rural communities.
+                    </p>
                 </div>
-                <h3>Goal 3</h3>
-                <p>Building sustainable sanitation infrastructure to support menstrual dignity in rural communities.</p>
+                <div class="card-image-box">
+                    <img src="DSC05107.JPG" alt="Sanitation">
+                    <a href="#" class="card-btn-view">GOAL 3</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Voices of Period Poverty Section (Infinite Loop) -->
+    <section class="voices-ticker-section">
+        <div class="ticker-header">
+            <h2>Voices of Period Poverty</h2>
+        </div>
+
+        <div class="ticker-wrapper">
+            <!-- Row 1: Left to Right -->
+            <div class="ticker-row ticker-row--ltr">
+                <div class="voice-card">
+                    <p>"I had to use old newspapers because I couldn't afford a single pad. The shame was worse than the
+                        pain."</p>
+                    <span class="voice-author">— Rural Student, 16</span>
+                </div>
+                <div class="voice-card alt">
+                    <p>"My period is a monthly nightmare of poverty. I shouldn't have to choose between food and
+                        hygiene."</p>
+                    <span class="voice-author">— Single Mother, 24</span>
+                </div>
+                <div class="voice-card">
+                    <p>"I missed five days of school every month. My dreams felt further away with every cycle."</p>
+                    <span class="voice-author">— Secondary School Student</span>
+                </div>
+                <div class="voice-card alt">
+                    <p>"They told me menstruation was a curse. I lived in a shed for a week. I was alone and afraid."
+                    </p>
+                    <span class="voice-author">— Community Youth</span>
+                </div>
+                <!-- Duplicate for loop -->
+                <div class="voice-card">
+                    <p>"I had to use old newspapers because I couldn't afford a single pad. The shame was worse than the
+                        pain."</p>
+                    <span class="voice-author">— Rural Student, 16</span>
+                </div>
+                <div class="voice-card alt">
+                    <p>"My period is a monthly nightmare of poverty. I shouldn't have to choose between food and
+                        hygiene."</p>
+                    <span class="voice-author">— Single Mother, 24</span>
+                </div>
+                <div class="voice-card">
+                    <p>"I missed five days of school every month. My dreams felt further away with every cycle."</p>
+                    <span class="voice-author">— Secondary School Student</span>
+                </div>
+                <div class="voice-card alt">
+                    <p>"They told me menstruation was a curse. I lived in a shed for a week. I was alone and afraid."
+                    </p>
+                    <span class="voice-author">— Community Youth</span>
+                </div>
+            </div>
+
+            <!-- Row 2: Right to Left -->
+            <div class="ticker-row ticker-row--rtl">
+                <div class="voice-card alt">
+                    <p>"I washed and reused the same cloth for a year. The infection nearly took my life."</p>
+                    <span class="voice-author">— Village Woman, 32</span>
+                </div>
+                <div class="voice-card">
+                    <p>"My daughters share one pack of pads a month. It’s never enough, but it’s all we have."</p>
+                    <span class="voice-author">— Concerned Parent</span>
+                </div>
+                <div class="voice-card alt">
+                    <p>"The teachers don't understand. They think I'm lazy when I can't stand up from the pain."</p>
+                    <span class="voice-author">— Student Activist</span>
+                </div>
+                <div class="voice-card">
+                    <p>"Dignity should not be a luxury. We are human beings, not burdens."</p>
+                    <span class="voice-author">— Community Advocate</span>
+                </div>
+                <!-- Duplicate for loop -->
+                <div class="voice-card alt">
+                    <p>"I washed and reused the same cloth for a year. The infection nearly took my life."</p>
+                    <span class="voice-author">— Village Woman, 32</span>
+                </div>
+                <div class="voice-card">
+                    <p>"My daughters share one pack of pads a month. It’s never enough, but it’s all we have."</p>
+                    <span class="voice-author">— Concerned Parent</span>
+                </div>
+                <div class="voice-card alt">
+                    <p>"The teachers don't understand. They think I'm lazy when I can't stand up from the pain."</p>
+                    <span class="voice-author">— Student Activist</span>
+                </div>
+                <div class="voice-card">
+                    <p>"Dignity should not be a luxury. We are human beings, not burdens."</p>
+                    <span class="voice-author">— Community Advocate</span>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="ocean-waves" style="margin-bottom: -5px;">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" style="display: block; width: 100%; height: 150px;">
-            <path fill="#A35E6D" fill-opacity="0.8" d="M0,96L80,112C160,128,320,160,480,160C640,160,800,128,960,112C1120,96,1280,96,1360,96L1440,96L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
-            <path fill="#C68996" fill-opacity="0.9" d="M0,160L80,149.3C160,139,320,117,480,128C640,139,800,181,960,192C1120,203,1280,181,1360,170.7L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
-            <path fill="#701a1a" d="M0,224L80,234.7C160,245,320,267,480,261.3C640,256,800,224,960,213.3C1120,203,1280,213,1360,218.7L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none"
+            style="display: block; width: 100%; height: 150px;">
+            <path fill="#A35E6D" fill-opacity="0.8"
+                d="M0,96L80,112C160,128,320,160,480,160C640,160,800,128,960,112C1120,96,1280,96,1360,96L1440,96L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
+            </path>
+            <path fill="#C68996" fill-opacity="0.9"
+                d="M0,160L80,149.3C160,139,320,117,480,128C640,139,800,181,960,192C1120,203,1280,181,1360,170.7L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
+            </path>
+            <path fill="#701a1a"
+                d="M0,224L80,234.7C160,245,320,267,480,261.3C640,256,800,224,960,213.3C1120,203,1280,213,1360,218.7L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
+            </path>
         </svg>
     </section>
 
     <section class="our-goals-section">
         <h2 class="scroll-reveal">Our Mission Objectives</h2>
         <div class="goals-grid">
-            <div class="goal-card-white scroll-reveal" style="transition-delay: 0.1s">
-                <div class="circle-icon-blue">
+            <!-- Goal Card 4 -->
+            <div class="program-card-modern scroll-reveal" style="transition-delay: 0.1s; width: 350px;">
+                <div class="card-image-box">
                     <img src="DSC05113.JPG" alt="Community Outreach">
                 </div>
-                <h3>Goal 4</h3>
-                <p>Engaging local leaders and communities to foster an environment where menstruation is never a barrier.</p>
+                <div class="card-content" style="padding-top: 30px;">
+                    <h3>COMMUNITY <br>OUTREACH</h3>
+                    <p>Engaging local leaders and communities to foster an environment where menstruation is never a
+                        barrier.</p>
+                </div>
             </div>
-            <div class="goal-card-white scroll-reveal" style="transition-delay: 0.2s">
-                <div class="circle-icon-blue">
+
+            <!-- Goal Card 5 -->
+            <div class="program-card-modern highlight-blue scroll-reveal" style="transition-delay: 0.2s; width: 350px;">
+                <div class="card-image-box">
                     <img src="DSC05114.JPG" alt="Health Advocacy">
                 </div>
-                <h3>Goal 5</h3>
-                <p>Advocating for policy changes that eliminate taxes on period products and ensure equal health rights.</p>
+                <div class="card-content" style="padding-top: 30px;">
+                    <h3>HEALTH <br>ADVOCACY</h3>
+                    <p>Advocating for policy changes that eliminate taxes on period products and ensure equal health
+                        rights.</p>
+                </div>
             </div>
-            <div class="goal-card-white scroll-reveal" style="transition-delay: 0.3s">
-                <div class="circle-icon-blue">
+
+            <!-- Goal Card 6 -->
+            <div class="program-card-modern scroll-reveal" style="transition-delay: 0.3s; width: 350px;">
+                <div class="card-image-box">
                     <img src="DSC05115.JPG" alt="Sustainable Solutions">
                 </div>
-                <h3>Goal 6</h3>
-                <p>Supporting innovative, sustainable, and eco-friendly menstrual solutions for long-term impact.</p>
+                <div class="card-content" style="padding-top: 30px;">
+                    <h3>SUSTAINABLE <br>SOLUTIONS</h3>
+                    <p>Supporting innovative, sustainable, and eco-friendly menstrual solutions for long-term impact.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -101,7 +260,7 @@
     <section class="footer-cta">
         <div class="footer-content scroll-reveal">
             <h2>Let’s End This Suffering</h2>
-            <a href="#" class="btn-join">Join Our Mission</a>
+            <a href="join.html" class="btn-join">Join Our Mission</a>
         </div>
         <div class="footer-image-side scroll-reveal" style="transition-delay: 0.2s">
             <img src="DSC05109.JPG" alt="Community Support">

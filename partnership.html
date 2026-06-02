@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partnership | Kita dan Haid</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Partnership Specific Styles */
+        /* Ticker Container */
+        .ticker-section {
+            padding: 80px 0;
+            background: #fff;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .ticker-section.bg-maroon {
+            background: var(--primary-maroon);
+            color: white;
+            border-bottom: none;
+        }
+
+        .ticker-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .ticker-header h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .ticker-section.bg-maroon .ticker-header h2 {
+            color: white;
+        }
+
+        @keyframes infinite-scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes infinite-scroll-reverse {
+            0% {
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .logo-ticker {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            width: 100%;
+        }
+
+        .logo-ticker-track {
+            display: inline-flex;
+            animation: infinite-scroll 25s linear infinite;
+            gap: 80px;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .ticker-section.bg-maroon .logo-ticker-track {
+            animation: infinite-scroll-reverse 25s linear infinite;
+        }
+
+        .logo-item {
+            width: 200px;
+            height: 100px;
+            background: rgba(0, 0, 0, 0.03);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            transition: var(--transition-smooth);
+        }
+
+        .ticker-section.bg-maroon .logo-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .logo-item img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: var(--transition-smooth);
+        }
+
+        .ticker-section.bg-maroon .logo-item img {
+            filter: brightness(0) invert(1);
+            opacity: 0.8;
+        }
+
+        .logo-item:hover {
+            transform: scale(1.05);
+            box-shadow: 8px 8px 0px var(--primary-blue);
+            border-color: #000;
+        }
+
+        .ticker-section.bg-maroon .logo-item:hover {
+            box-shadow: 8px 8px 0px #000;
+            border-color: #fff;
+        }
+
+        .logo-item:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        .ticker-section.bg-maroon .logo-item:hover img {
+            filter: none;
+            opacity: 1;
+        }
+
+        /* Collaboration Section */
+        .collab-section {
+            padding: 120px 8%;
+            background: var(--bg-light);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .collab-content h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            color: var(--primary-maroon);
+            text-transform: uppercase;
+        }
+
+        .collab-content p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .collab-form {
+            background: #fff;
+            padding: 50px;
+            border-radius: 20px;
+            border: 4px solid #000;
+            box-shadow: 15px 15px 0px #000;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 1rem;
+            font-family: inherit;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            transition: var(--transition-smooth);
+            background: #f9f9f9;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            background: #fff;
+            box-shadow: 4px 4px 0px var(--primary-blue);
+        }
+
+        .btn-submit {
+            display: inline-block;
+            width: 100%;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 18px 30px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border: 4px solid #000;
+            box-shadow: 8px 8px 0px #000;
+        }
+
+        .btn-submit:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0px #000;
+            background: #145a96;
+        }
+
+        @media (max-width: 900px) {
+            .collab-section {
+                grid-template-columns: 1fr;
+            }
+
+            .collab-form {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .ticker-header h2 {
+                font-size: 2.2rem;
+            }
+
+            .collab-content h2 {
+                font-size: 2.5rem;
+            }
+
+            .logo-item {
+                width: 140px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header-placeholder"></header>
+
+    <main>
+        <!-- Partnership Hero -->
+        <section class="programs-hero">
+            <div class="programs-hero-bg">
+                <img src="hero 1.JPG" alt="Partnership Background">
+            </div>
+            <div class="programs-hero-overlay"></div>
+
+            <div class="programs-hero-content">
+                <span class="hero-tag">Collaboration</span>
+                <h1>Our <br><span class="highlight-pill">Partnership</span></h1>
+                <p>When we unite, we end period poverty faster. Discover the organizations and sponsors making our mission possible.</p>
+                <a href="#explore" class="btn-programs-view">See Partners</a>
+            </div>
+        </section>
+
+        <!-- In Partnership With Section -->
+        <section class="ticker-section scroll-reveal" id="explore">
+            <div class="ticker-header">
+                <h2>In Partnership With</h2>
+            </div>
+            <div class="logo-ticker">
+                <div class="logo-ticker-track">
+                    <!-- Original Set -->
+                    <div class="logo-item"><img src="logo NGO KDH.png" alt="Partner Logo"></div>
+                    <div class="logo-item"><img src="logo NGO KDH.png" alt="Partner Logo"></div>
+                    <div class="logo-item"><img src="logo NGO KDH.png" alt="Partner Logo"></div>
+                    <div class="logo-item"><img src="logo NGO KDH.png" alt="Partner Logo"></div>
+                    <div class="logo-item"><img src="logo NGO KDH.png" alt="Partner Logo"></div>
+
+                    <!-- Duplicated Set for Seamless Loop -->
+                    <div class="logo-item"><img src="logo NGO KDH.png" alt="Partner Logo"></div>
+                    <div class="logo-item"><img src="logo NGO KDH.png" alt="Partner Logo"></div>
+                    <div class="logo-item"><img src="logo NGO KDH.png" alt="Partner Logo"></div>
+                    <div class="logo-item"><img src="logo NGO KDH.png" alt="Partner Logo"></div>
+                    <div class="logo-item"><img src="logo NGO KDH.png" alt="Partner Logo"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sponsorship Section -->
+        <section class="ticker-section bg-maroon scroll-reveal">
+            <div class="ticker-header">
+                <h2>Our Power Sponsors</h2>
+            </div>
+            <div class="logo-ticker">
+                <div class="logo-ticker-track">
+                    <!-- Original Set -->
+                    <div class="logo-item"><img src="HQ logo name white.png" alt="Sponsor Logo"></div>
+                    <div class="logo-item"><img src="HQ logo name white.png" alt="Sponsor Logo"></div>
+                    <div class="logo-item"><img src="HQ logo name white.png" alt="Sponsor Logo"></div>
+                    <div class="logo-item"><img src="HQ logo name white.png" alt="Sponsor Logo"></div>
+                    <div class="logo-item"><img src="HQ logo name white.png" alt="Sponsor Logo"></div>
+
+                    <!-- Duplicated Set for Seamless Loop -->
+                    <div class="logo-item"><img src="HQ logo name white.png" alt="Sponsor Logo"></div>
+                    <div class="logo-item"><img src="HQ logo name white.png" alt="Sponsor Logo"></div>
+                    <div class="logo-item"><img src="HQ logo name white.png" alt="Sponsor Logo"></div>
+                    <div class="logo-item"><img src="HQ logo name white.png" alt="Sponsor Logo"></div>
+                    <div class="logo-item"><img src="HQ logo name white.png" alt="Sponsor Logo"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collaboration Apply Section -->
+        <section class="collab-section">
+            <div class="collab-content scroll-reveal">
+                <h2>Become A Partner <br>For Change</h2>
+                <p>We are actively looking for NGOs, corporations, educators, and volunteers who share our vision. Let's
+                    work together to provide sanitary resources, build educational programs, and create policies that
+                    eliminate period poverty permanently.</p>
+                <div style="margin-top: 40px;">
+                    <div style="font-weight: 800; font-size: 1.2rem; margin-bottom: 10px;">Why Collaborate?</div>
+                    <ul
+                        style="list-style-type: none; padding-left: 0; display: flex; flex-direction: column; gap: 15px;">
+                        <li style="display: flex; align-items: center; gap: 10px;">
+                            <span
+                                style="display: inline-block; width: 12px; height: 12px; background: var(--primary-maroon); border-radius: 50%;"></span>
+                            Target impactful demographic sectors.
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px;">
+                            <span
+                                style="display: inline-block; width: 12px; height: 12px; background: var(--primary-blue); border-radius: 50%;"></span>
+                            Elevate your ESG objectives.
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px;">
+                            <span
+                                style="display: inline-block; width: 12px; height: 12px; background: var(--text-dark); border-radius: 50%;"></span>
+                            Spark systemic community changes.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collab-form-container scroll-reveal" style="transition-delay: 0.2s;">
+                <form class="collab-form" action="#" method="POST">
+                    <div class="form-group">
+                        <label for="orgName">Organization Name</label>
+                        <input type="text" id="orgName" name="orgName" class="form-control" placeholder="Acme Corp"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactName">Contact Person</label>
+                        <input type="text" id="contactName" name="contactName" class="form-control"
+                            placeholder="Jane Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="jane@acmecorp.com"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="collabInterest">Type of Collaboration</label>
+                        <select id="collabInterest" name="collabInterest" class="form-control" required
+                            style="cursor: pointer;">
+                            <option value="">Select an option</option>
+                            <option value="financial_sponsor">Financial Sponsorship</option>
+                            <option value="product_partner">Product & Supply Partner</option>
+                            <option value="educational_outreach">Educational Outreach</option>
+                            <option value="volunteer_group">Volunteer Network</option>
+                            <option value="other">Other Proposal</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Proposal</label>
+                        <textarea id="message" name="message" class="form-control" rows="4"
+                            placeholder="Tell us how we can achieve greatness together..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Apply for Collaboration</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer-placeholder" class="main-footer"></footer>
+
+    <script src="campaign_landing.js"></script>
+</body>
+
+</html>
