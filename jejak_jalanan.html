@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Jejak Jalanan × Abe Hae | Kita dan Haid</title>
+    <meta name="description" content="Program Jejak Jalanan × Abe Hae di Jalan Chow Kit, Kuala Lumpur, Februari 2026 — 1,536 paket diagihkan.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .program-description { padding: 100px 8%; background: #fff; }
+        .program-description h2 { font-size: 3.5rem; color: var(--primary-maroon); margin-bottom: 30px; }
+        .program-description p { font-size: 1.25rem; line-height: 1.8; color: #444; margin-bottom: 25px; max-width: 900px; }
+        .event-info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin: 50px 0 40px; }
+        .event-info-card { background: var(--bg-light); border: 3px solid #000; border-radius: 20px; padding: 28px 24px; box-shadow: 6px 6px 0px #000; }
+        .event-info-card .label { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--primary-maroon); margin-bottom: 10px; }
+        .event-info-card .value { font-size: 1.2rem; font-weight: 700; color: #000; }
+        .impact-hero-stat { background: #1a1a1a; color: white; padding: 60px 8%; text-align: center; }
+        .impact-hero-stat h2 { font-size: 6rem; font-weight: 900; line-height: 1; }
+        .impact-hero-stat p { font-size: 1.3rem; opacity: 0.85; margin-top: 15px; }
+        .program-gallery { padding: 80px 8%; background: var(--bg-light); }
+        .program-gallery h2 { font-size: 3.5rem; margin-bottom: 50px; text-align: center; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .gallery-item { border-radius: 20px; overflow: hidden; border: 4px solid #000; box-shadow: 10px 10px 0px #000; transition: var(--transition-smooth); height: 300px; }
+        .gallery-item:hover { transform: translate(-5px, -5px); box-shadow: 15px 15px 0px var(--primary-maroon); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: filter 0.3s; }
+        .gallery-item:hover img { filter: grayscale(0%); }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--primary-maroon); text-decoration: none; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 40px; transition: gap 0.2s; }
+        .back-btn:hover { gap: 14px; }
+        @media (max-width: 768px) {
+            .program-description { padding: 58px 20px; }
+            .program-description h2 { font-size: 2.4rem; }
+            .program-description p { font-size: 1.05rem; }
+            .impact-hero-stat h2 { font-size: 4rem; }
+            .program-gallery { padding: 58px 20px; overflow: hidden; }
+            .gallery-grid { display: flex; gap: 18px; overflow-x: auto; margin-right: -20px; padding: 8px 20px 28px 0; scroll-snap-type: x mandatory; scrollbar-width: none; }
+            .gallery-grid::-webkit-scrollbar { display: none; }
+            .gallery-item { flex: 0 0 82vw; height: auto; aspect-ratio: 4 / 3; scroll-snap-align: start; }
+        }
+    </style>
+</head>
+<body>
+    <header id="header-placeholder"></header>
+    <main>
+        <!-- Hero Section -->
+        <section class="programs-hero">
+            <div class="programs-hero-bg">
+                <img src="../DSC05104.JPG" alt="Jejak Jalanan Background">
+            </div>
+            <div class="programs-hero-overlay"></div>
+            <div class="programs-hero-content">
+                <span class="hero-tag">Feb 2026 · Street Outreach</span>
+                <h1>Jejak Jalanan <br><span class="highlight-pill">× Abe Hae</span></h1>
+                <p>Misi Malam di Jalan Chow Kit, Kuala Lumpur</p>
+            </div>
+        </section>
+
+        <!-- Description Section -->
+        <section class="program-description scroll-reveal">
+            <a href="../programs.html" class="back-btn">← Kembali ke Program</a>
+            <h2>Tentang Program</h2>
+            <p>Program Jejak Jalanan × Abe Hae merupakan misi jangkauan malam yang dijalankan bersama kolaborator Abe Hae untuk mencapai golongan yang paling memerlukan bantuan — mereka yang tinggal dan bekerja di jalanan.</p>
+            <p>Menggunakan pendekatan "turun ke bawah", pasukan sukarelawan kami mengedar 32 kotak (1,536 paket) tuala wanita secara terus kepada wanita di kawasan Jalan Chow Kit, Kuala Lumpur pada waktu malam.</p>
+
+            <!-- Event Info Cards -->
+            <div class="event-info-grid">
+                <div class="event-info-card">
+                    <div class="label">Lokasi</div>
+                    <div class="value">Jalan Chow Kit, Kuala Lumpur</div>
+                </div>
+                <div class="event-info-card">
+                    <div class="label">Tarikh</div>
+                    <div class="value">7 Februari 2026</div>
+                </div>
+                <div class="event-info-card">
+                    <div class="label">Masa</div>
+                    <div class="value">7:30 PM – 10:30 PM</div>
+                </div>
+                <div class="event-info-card">
+                    <div class="label">Agihan</div>
+                    <div class="value">32 Kotak = 1,536 Paket</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Stat -->
+        <section class="impact-hero-stat scroll-reveal" style="margin: 0 8% 80px; border-radius: 40px; border: 4px solid #000; box-shadow: 10px 10px 0px #000;">
+            <h2>1,536</h2>
+            <p>Paket Tuala Wanita diagihkan malam itu di Jalan Chow Kit, Kuala Lumpur</p>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="program-gallery scroll-reveal">
+            <h2>Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="../DSC05104.JPG" alt="Program Image 1"></div>
+                <div class="gallery-item"><img src="../DSC05105.JPG" alt="Program Image 2"></div>
+                <div class="gallery-item"><img src="../DSC05106.JPG" alt="Program Image 3"></div>
+                <div class="gallery-item"><img src="../DSC05107.JPG" alt="Program Image 4"></div>
+            </div>
+        </section>
+    </main>
+    <footer id="footer-placeholder" class="main-footer"></footer>
+    <script src="../campaign_landing.js"></script>
+</body>
+</html>
