@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         .program-description { padding: 100px 8%; background: #fff; }
         .program-description h2 { font-size: 3.5rem; color: #2d6a4f; margin-bottom: 30px; }
@@ -47,7 +47,7 @@
         <!-- Hero Section -->
         <section class="programs-hero">
             <div class="programs-hero-bg">
-                <img src="../DSC05113.JPG" alt="Ziarah Ramadhan Background">
+                <img src="DSC05113.JPG" alt="Ziarah Ramadhan Background">
             </div>
             <div class="programs-hero-overlay"></div>
             <div class="programs-hero-content">
@@ -95,14 +95,43 @@
         <section class="program-gallery scroll-reveal">
             <h2>Gallery</h2>
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="../DSC05113.JPG" alt="Program Image 1"></div>
-                <div class="gallery-item"><img src="../DSC05109.JPG" alt="Program Image 2"></div>
-                <div class="gallery-item"><img src="../DSC05115.JPG" alt="Program Image 3"></div>
-                <div class="gallery-item"><img src="../DSC05114.JPG" alt="Program Image 4"></div>
+                <div class="gallery-item"><img src="DSC05113.JPG" alt="Program Image 1"></div>
+                <div class="gallery-item"><img src="DSC05109.JPG" alt="Program Image 2"></div>
+                <div class="gallery-item"><img src="DSC05115.JPG" alt="Program Image 3"></div>
+                <div class="gallery-item"><img src="DSC05114.JPG" alt="Program Image 4"></div>
             </div>
         </section>
     </main>
     <footer id="footer-placeholder" class="main-footer"></footer>
-    <script src="../campaign_landing.js"></script>
+    <script src="campaign_landing.js"></script>
+    <script>
+        const ziarahTranslations = {
+            ms: {
+                back: '← Kembali ke Program',
+                heroTag: 'Mac 2026 · Ziarah Kebajikan',
+                titleHighlight: 'Ramadhan 2026',
+                desc1: 'Dalam semangat Ramadhan dan rasa belas kasihan, Kita dan Haid mengadakan ziarah ke Pertubuhan Kebajikan Dan Pendidikan Rumah Kita untuk memastikan penghuni mendapat bekalan tuala wanita yang mencukupi sepanjang bulan mulia ini.',
+                desc2: 'Kami membawa 4 kotak tuala wanita Siang dan 4 kotak tuala wanita Malam, memastikan setiap penghuni wanita di rumah tersebut dilengkapi dengan keperluan asas dengan penuh maruah.'
+            },
+            en: {
+                back: '← Back to Programs',
+                heroTag: 'Mar 2026 · Welfare Visit',
+                titleHighlight: 'Ramadhan 2026',
+                desc1: 'In the spirit of Ramadhan, Kita dan Haid visited Pertubuhan Kebajikan Dan Pendidikan Rumah Kita to ensure residents received sufficient sanitary supplies during the holy month.',
+                desc2: 'We delivered 4 day-pack boxes and 4 night-pack boxes, ensuring each female resident received essential supplies with dignity.'
+            }
+        };
+
+        function applyZiarahLang(lang) {
+            document.querySelector('.back-btn').textContent = ziarahTranslations[lang].back;
+            document.querySelector('.hero-tag').textContent = ziarahTranslations[lang].heroTag;
+            const hl = document.querySelector('.highlight-pill'); if (hl) hl.textContent = ziarahTranslations[lang].titleHighlight;
+            const paras = document.querySelectorAll('.program-description p');
+            if (paras[0]) paras[0].textContent = ziarahTranslations[lang].desc1;
+            if (paras[1]) paras[1].textContent = ziarahTranslations[lang].desc2;
+        }
+
+        window.addEventListener('siteLangChange', (e) => applyZiarahLang(e.detail.lang));
+    </script>
 </body>
 </html>

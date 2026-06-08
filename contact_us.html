@@ -152,13 +152,14 @@
 
         .social-hero-card {
             border-radius: 28px;
-            padding: 28px 26px;
+            padding: 24px 26px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            align-items: center;
             text-decoration: none;
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
-            min-height: 160px;
+            min-height: 140px;
             border: 3px solid rgba(0,0,0,0.12);
             box-shadow: none;
         }
@@ -185,6 +186,11 @@
             justify-content: center;
         }
 
+        .social-hero-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
         .social-hero-arrow {
             opacity: 0.5;
             transition: transform 0.3s ease, opacity 0.3s ease;
@@ -198,6 +204,44 @@
         .social-hero-info {
             margin-top: 24px;
         }
+
+        /* Page-specific overrides: make social cards lighter and consistent (override heavy global card styles) */
+        .social-cards-wrapper .social-hero-card {
+            border: 2px solid rgba(0,0,0,0.08) !important;
+            box-shadow: 6px 6px 0 rgba(0,0,0,0.06) !important;
+            border-radius: 18px !important;
+            padding: 18px 18px !important;
+            min-height: 140px;
+            align-items: flex-start;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+        }
+
+        .social-cards-wrapper .social-hero-card .social-hero-icon {
+            background: rgba(255,255,255,0.85);
+            box-shadow: none;
+            border-radius: 12px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-cards-wrapper .social-hero-card .social-hero-arrow {
+            opacity: 0.6;
+            transition: transform 0.22s ease, opacity 0.22s ease;
+        }
+
+        .social-cards-wrapper .social-hero-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 12px 12px 0 rgba(0,0,0,0.08) !important;
+            border-color: rgba(0,0,0,0.06) !important;
+        }
+
+        .social-hero-platform { margin-bottom: 6px; }
+
+        /* Make social grid tighter and card contents balanced */
+        .social-cards-grid { grid-template-columns: repeat(1, minmax(0,1fr)); gap: 18px; }
 
         .social-hero-platform {
             font-size: 1.5rem;
@@ -329,7 +373,7 @@
             }
 
             .social-hero-card {
-                aspect-ratio: 1 / 1;
+                aspect-ratio: auto !important;
                 width: 100%;
                 min-height: 0;
                 box-shadow: 4px 4px 0px #000;
@@ -348,8 +392,8 @@
             }
 
             .social-hero-icon svg {
-                width: 20px;
-                height: 20px;
+                width: 18px;
+                height: 18px;
             }
 
             .social-hero-arrow svg {

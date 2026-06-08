@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         .program-description { padding: 100px 8%; background: #fff; }
         .program-description h2 { font-size: 3.5rem; color: var(--primary-blue); margin-bottom: 30px; }
@@ -47,7 +47,7 @@
         <!-- Hero Section -->
         <section class="programs-hero">
             <div class="programs-hero-bg">
-                <img src="../DSC05114.JPG" alt="Period Positivity Background">
+                <img src="DSC05114.JPG" alt="Period Positivity Background">
             </div>
             <div class="programs-hero-overlay"></div>
             <div class="programs-hero-content">
@@ -95,14 +95,43 @@
         <section class="program-gallery scroll-reveal">
             <h2>Gallery</h2>
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="../DSC05114.JPG" alt="Program Image 1"></div>
-                <div class="gallery-item"><img src="../DSC05115.JPG" alt="Program Image 2"></div>
-                <div class="gallery-item"><img src="../DSC05109.JPG" alt="Program Image 3"></div>
-                <div class="gallery-item"><img src="../hero2.jpg" alt="Program Image 4"></div>
+                <div class="gallery-item"><img src="DSC05114.JPG" alt="Program Image 1"></div>
+                <div class="gallery-item"><img src="DSC05115.JPG" alt="Program Image 2"></div>
+                <div class="gallery-item"><img src="DSC05109.JPG" alt="Program Image 3"></div>
+                <div class="gallery-item"><img src="hero2.jpg" alt="Program Image 4"></div>
             </div>
         </section>
     </main>
     <footer id="footer-placeholder" class="main-footer"></footer>
-    <script src="../campaign_landing.js"></script>
+    <script src="campaign_landing.js"></script>
+    <script>
+        const periodTranslations = {
+            ms: {
+                back: '← Kembali ke Program',
+                heroTag: 'Jan 2026 · Campus Outreach',
+                titleHighlight: 'Positivity',
+                desc1: 'Program Period Positivity merupakan misi kesedaran dan pengagihan yang dijalankan di institusi pengajian tinggi bagi menghapuskan stigma seputar haid dan memastikan pelajar wanita mendapat bekalan yang mencukupi.',
+                desc2: 'Sesi yang dijalankan di Kolej Mawar, UITM Shah Alam ini merangkumi ceramah interaktif, sesi soal jawab, serta pengagihan tuala wanita Siang dan Malam kepada para pelajar.'
+            },
+            en: {
+                back: '← Back to Programs',
+                heroTag: 'Jan 2026 · Campus Outreach',
+                titleHighlight: 'Positivity',
+                desc1: 'The Period Positivity program is an awareness and distribution mission held at higher education institutions to remove stigma around menstruation and ensure students receive sufficient supplies.',
+                desc2: 'The session at Kolej Mawar, UITM Shah Alam included interactive talks, Q&A, and distribution of day & night sanitary packs.'
+            }
+        };
+
+        function applyPeriodLang(lang) {
+            document.querySelector('.back-btn').textContent = periodTranslations[lang].back;
+            document.querySelector('.hero-tag').textContent = periodTranslations[lang].heroTag;
+            const hl = document.querySelector('.highlight-pill'); if (hl) hl.textContent = periodTranslations[lang].titleHighlight;
+            const paras = document.querySelectorAll('.program-description p');
+            if (paras[0]) paras[0].textContent = periodTranslations[lang].desc1;
+            if (paras[1]) paras[1].textContent = periodTranslations[lang].desc2;
+        }
+
+        window.addEventListener('siteLangChange', (e) => applyPeriodLang(e.detail.lang));
+    </script>
 </body>
 </html>

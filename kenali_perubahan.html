@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         .program-description {
             padding: 100px 8%;
@@ -149,7 +149,7 @@
         <!-- Hero Section -->
         <section class="programs-hero">
             <div class="programs-hero-bg">
-                <img src="../DSC05105.JPG" alt="Kenali Perubahan Badan Background">
+                <img src="DSC05105.JPG" alt="Kenali Perubahan Badan Background">
             </div>
             <div class="programs-hero-overlay"></div>
             <div class="programs-hero-content">
@@ -197,14 +197,45 @@
         <section class="program-gallery scroll-reveal">
             <h2>Gallery</h2>
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="../DSC05104.JPG" alt="Program Image 1"></div>
-                <div class="gallery-item"><img src="../DSC05105.JPG" alt="Program Image 2"></div>
-                <div class="gallery-item"><img src="../DSC05106.JPG" alt="Program Image 3"></div>
-                <div class="gallery-item"><img src="../DSC05107.JPG" alt="Program Image 4"></div>
+                <div class="gallery-item"><img src="DSC05104.JPG" alt="Program Image 1"></div>
+                <div class="gallery-item"><img src="DSC05105.JPG" alt="Program Image 2"></div>
+                <div class="gallery-item"><img src="DSC05106.JPG" alt="Program Image 3"></div>
+                <div class="gallery-item"><img src="DSC05107.JPG" alt="Program Image 4"></div>
             </div>
         </section>
     </main>
     <footer id="footer-placeholder" class="main-footer"></footer>
-    <script src="../campaign_landing.js"></script>
+    <script src="campaign_landing.js"></script>
+    <script>
+        // Page translations for `Kenali Perubahan` — simple key map
+        const kenaliTranslations = {
+            ms: {
+                back: '← Kembali ke Program',
+                heroTag: 'Sept 2024 · Outreach',
+                titleHighlight: 'Badan',
+                desc1: 'Program ini bertujuan untuk mendidik penghuni Rumah Penjagaan Limpahan Kasih tentang perubahan badan semasa akil baligh dan cara menguruskan diri dengan betul ketika mengalami haid.',
+                desc2: 'Melalui sesi interaktif dan penyampaian kit kesihatan, kami berjaya memberikan pemahaman yang lebih baik serta alatan yang diperlukan untuk menjaga kebersihan diri dengan maruah.'
+            },
+            en: {
+                back: '← Back to Programs',
+                heroTag: 'Sept 2024 · Outreach',
+                titleHighlight: 'Body',
+                desc1: 'This program aims to educate residents at Limpahan Kasih care home about bodily changes during puberty and how to manage menstruation with dignity.',
+                desc2: 'Through interactive sessions and kit distributions, we provided better understanding and essential supplies for personal hygiene.'
+            }
+        };
+
+        function applyKenaliLang(lang) {
+            document.querySelector('.back-btn').textContent = kenaliTranslations[lang].back;
+            document.querySelector('.hero-tag').textContent = kenaliTranslations[lang].heroTag;
+            const hl = document.querySelector('.highlight-pill');
+            if (hl) hl.textContent = kenaliTranslations[lang].titleHighlight;
+            const paras = document.querySelectorAll('.program-description p');
+            if (paras[0]) paras[0].textContent = kenaliTranslations[lang].desc1;
+            if (paras[1]) paras[1].textContent = kenaliTranslations[lang].desc2;
+        }
+
+        window.addEventListener('siteLangChange', (e) => applyKenaliLang(e.detail.lang));
+    </script>
 </body>
 </html>

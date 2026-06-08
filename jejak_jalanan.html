@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         .program-description { padding: 100px 8%; background: #fff; }
         .program-description h2 { font-size: 3.5rem; color: var(--primary-maroon); margin-bottom: 30px; }
@@ -47,7 +47,7 @@
         <!-- Hero Section -->
         <section class="programs-hero">
             <div class="programs-hero-bg">
-                <img src="../DSC05104.JPG" alt="Jejak Jalanan Background">
+                <img src="DSC05104.JPG" alt="Jejak Jalanan Background">
             </div>
             <div class="programs-hero-overlay"></div>
             <div class="programs-hero-content">
@@ -95,14 +95,43 @@
         <section class="program-gallery scroll-reveal">
             <h2>Gallery</h2>
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="../DSC05104.JPG" alt="Program Image 1"></div>
-                <div class="gallery-item"><img src="../DSC05105.JPG" alt="Program Image 2"></div>
-                <div class="gallery-item"><img src="../DSC05106.JPG" alt="Program Image 3"></div>
-                <div class="gallery-item"><img src="../DSC05107.JPG" alt="Program Image 4"></div>
+                <div class="gallery-item"><img src="DSC05104.JPG" alt="Program Image 1"></div>
+                <div class="gallery-item"><img src="DSC05105.JPG" alt="Program Image 2"></div>
+                <div class="gallery-item"><img src="DSC05106.JPG" alt="Program Image 3"></div>
+                <div class="gallery-item"><img src="DSC05107.JPG" alt="Program Image 4"></div>
             </div>
         </section>
     </main>
     <footer id="footer-placeholder" class="main-footer"></footer>
-    <script src="../campaign_landing.js"></script>
+    <script src="campaign_landing.js"></script>
+    <script>
+        const jejakTranslations = {
+            ms: {
+                back: '← Kembali ke Program',
+                heroTag: 'Feb 2026 · Street Outreach',
+                titleHighlight: '× Abe Hae',
+                desc1: 'Program Jejak Jalanan × Abe Hae merupakan misi jangkauan malam yang dijalankan bersama kolaborator Abe Hae untuk mencapai golongan yang paling memerlukan bantuan — mereka yang tinggal dan bekerja di jalanan.',
+                desc2: 'Menggunakan pendekatan "turun ke bawah", pasukan sukarelawan kami mengedar 32 kotak (1,536 paket) tuala wanita secara terus kepada wanita di kawasan Jalan Chow Kit, Kuala Lumpur pada waktu malam.'
+            },
+            en: {
+                back: '← Back to Programs',
+                heroTag: 'Feb 2026 · Street Outreach',
+                titleHighlight: '× Abe Hae',
+                desc1: 'Jejak Jalanan × Abe Hae was a night outreach mission carried out with Abe Hae to reach those most in need — people living and working on the streets.',
+                desc2: 'Using a grassroots approach, our volunteers distributed 32 boxes (1,536 packs) of sanitary supplies directly to women around Jalan Chow Kit during the night.'
+            }
+        };
+
+        function applyJejakLang(lang) {
+            document.querySelector('.back-btn').textContent = jejakTranslations[lang].back;
+            document.querySelector('.hero-tag').textContent = jejakTranslations[lang].heroTag;
+            const hl = document.querySelector('.highlight-pill'); if (hl) hl.textContent = jejakTranslations[lang].titleHighlight;
+            const paras = document.querySelectorAll('.program-description p');
+            if (paras[0]) paras[0].textContent = jejakTranslations[lang].desc1;
+            if (paras[1]) paras[1].textContent = jejakTranslations[lang].desc2;
+        }
+
+        window.addEventListener('siteLangChange', (e) => applyJejakLang(e.detail.lang));
+    </script>
 </body>
 </html>

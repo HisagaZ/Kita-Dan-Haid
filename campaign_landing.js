@@ -16,9 +16,23 @@ const headerContent = `
         <li><a href="${basePath}partnership.html" id="nav-partnership">Partnership</a></li>
         <li><a href="${basePath}contact_us.html" id="nav-contact">Contact Us</a></li>
     </ul>
-    <a href="${basePath}join.html" class="btn-partnership mobile-member-btn">Member</a>
 </nav>
-<a href="${basePath}join.html" class="btn-partnership desktop-member-btn">Member</a>
+<div class="header-actions">
+    <a href="${basePath}join.html" class="member-link" aria-label="Member profile">
+        <div class="member-avatar" title="Member">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="12" cy="8" r="3.2" fill="currentColor" />
+                <path d="M4.5 19c0-3.5 3.5-6 7.5-6s7.5 2.5 7.5 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </div>
+    </a>
+
+    <div class="lang-pill" aria-hidden="true" title="Language">
+        <span class="lang-cover" aria-hidden="true"></span>
+        <img src="${basePath}assets/flags/my.svg" class="flag-img flag-my" alt="Malaysia"/>
+        <img src="${basePath}assets/flags/gb.svg" class="flag-img flag-gb" alt="England"/>
+    </div>
+</div>
 `;
 
 const footerContent = `
@@ -63,6 +77,45 @@ function injectComponents() {
 
     if (headerPlaceholder) headerPlaceholder.innerHTML = headerContent;
     if (footerPlaceholder) footerPlaceholder.innerHTML = footerContent;
+
+    // Language pill: toggle language between 'ms' and 'en'. Default 'none' means not chosen yet.
+    const langPill = document.querySelector('.lang-pill');
+    const currentLang = localStorage.getItem('siteLang') || 'none';
+    if (langPill) {
+        langPill.dataset.lang = currentLang;
+        // set ARIA role/keyboard
+        langPill.setAttribute('role', 'button');
+        langPill.setAttribute('tabindex', '0');
+        langPill.setAttribute('aria-pressed', currentLang === 'en' ? 'true' : 'false');
+
+        const setLang = (next) => {
+            langPill.dataset.lang = next;
+            langPill.setAttribute('aria-pressed', next === 'en' ? 'true' : 'false');
+            localStorage.setItem('siteLang', next);
+            window.dispatchEvent(new CustomEvent('siteLangChange', { detail: { lang: next } }));
+        };
+
+        // clicking when state is 'none' should pick Malay first
+        langPill.addEventListener('click', () => {
+            let next;
+            if (langPill.dataset.lang === 'none') next = 'ms';
+            else next = (langPill.dataset.lang === 'ms') ? 'en' : 'ms';
+            setLang(next);
+        });
+
+        langPill.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                let next;
+                if (langPill.dataset.lang === 'none') next = 'ms';
+                else next = (langPill.dataset.lang === 'ms') ? 'en' : 'ms';
+                setLang(next);
+            }
+        });
+
+        // broadcast initial language so pages can set initial state
+        window.dispatchEvent(new CustomEvent('siteLangChange', { detail: { lang: currentLang } }));
+    }
 
     // Hamburger menu toggle
     const hamburgerBtn = document.getElementById('hamburger-btn');
